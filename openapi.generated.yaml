@@ -1,0 +1,525 @@
+openapi: 3.1.0
+info:
+  title: Hackathon API
+  version: 2025.06.09
+  description: Comprehensive API documentation for the Hackathon project
+  termsOfService: https://example.com/terms
+  contact:
+    name: API Support Team
+    email: api-support@example.com
+    url: https://example.com/support
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+    identifier: MIT
+servers:
+- url: http://localhost:8080
+  description: Local development server
+- url: https://api-staging.example.com
+  description: Staging environment
+- url: https://api.example.com
+  description: Production environment
+paths:
+  /orders/:
+    get:
+      tags:
+      - Order
+      summary: Retrieve all All Orderss
+      description: Retrieve all All Orderss. This endpoint supports GET operations
+        for the resource.
+      operationId: getAllOrders
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+      - Order
+      summary: Create add Order
+      description: Create add Order. This endpoint supports POST operations for the
+        resource.
+      operationId: addOrder
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/components/schemas/OrderResponse'
+        description: Request body of type OrderResponse
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /profiles/:
+    get:
+      tags:
+      - Profile
+      summary: Retrieve all All Profiless
+      description: Retrieve all All Profiless. This endpoint supports GET operations
+        for the resource.
+      operationId: getAllProfiles
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProfileResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+      - Profile
+      summary: Create add Profile
+      description: Create add Profile. This endpoint supports POST operations for
+        the resource.
+      operationId: addProfile
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProfileResponse'
+        description: Request body of type ProfileResponse
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/master/customer/{customerId}:
+    get:
+      tags:
+      - Master
+      summary: Retrieve Customer Details
+      description: Retrieve Customer Details. This endpoint supports GET operations
+        for the resource.
+      operationId: getCustomerDetails
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Parameter customerId of type String
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterApiResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /accounts/:
+    get:
+      tags:
+      - Account
+      summary: Retrieve all All Accountss
+      description: Retrieve all All Accountss. This endpoint supports GET operations
+        for the resource.
+      operationId: getAllAccounts
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+      - Account
+      summary: Create add Account
+      description: Create add Account. This endpoint supports POST operations for
+        the resource.
+      operationId: addAccount
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/components/schemas/AccountResponse'
+        description: Request body of type AccountResponse
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /services/:
+    get:
+      tags:
+      - Service
+      summary: Retrieve all All Servicess
+      description: Retrieve all All Servicess. This endpoint supports GET operations
+        for the resource.
+      operationId: getAllServices
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+      - Service
+      summary: Create add Service
+      description: Create add Service. This endpoint supports POST operations for
+        the resource.
+      operationId: addService
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/components/schemas/ServiceResponse'
+        description: Request body of type ServiceResponse
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /customers/:
+    get:
+      tags:
+      - Customer
+      summary: Retrieve all All Customerss
+      description: Retrieve all All Customerss. This endpoint supports GET operations
+        for the resource.
+      operationId: getAllCustomers
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+      - Customer
+      summary: Create add Customer
+      description: Create add Customer. This endpoint supports POST operations for
+        the resource.
+      operationId: addCustomer
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/components/schemas/CustomerResponse'
+        description: Request body of type CustomerResponse
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    OrderResponse:
+      type: object
+      description: Represents a OrderResponse entity
+      properties:
+        id:
+          type: string
+          description: The id of the OrderResponse
+        status:
+          type: string
+          description: The status of the OrderResponse
+    ProfileResponse:
+      type: object
+      description: Represents a ProfileResponse entity
+      properties:
+        id:
+          type: string
+          description: The id of the ProfileResponse
+        email:
+          type: string
+          description: The email of the ProfileResponse
+    AccountResponse:
+      type: object
+      description: Represents a AccountResponse entity
+      properties:
+        id:
+          type: string
+          description: The id of the AccountResponse
+        type:
+          type: string
+          description: The type of the AccountResponse
+    ServiceResponse:
+      type: object
+      description: Represents a ServiceResponse entity
+      properties:
+        id:
+          type: string
+          description: The id of the ServiceResponse
+        name:
+          type: string
+          description: The name of the ServiceResponse
+    CustomerResponse:
+      type: object
+      description: Represents a CustomerResponse entity
+      properties:
+        id:
+          type: string
+          description: The id of the CustomerResponse
+        name:
+          type: string
+          description: The name of the CustomerResponse
+    ErrorResponse:
+      type: object
+      description: Standard error response
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: ERR-001
+        message:
+          type: string
+          example: Error message
+        details:
+          type: object
+          description: Additional error details
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+- bearerAuth: []
+tags:
+- name: Order
+  description: Operations related to Order
+- name: Profile
+  description: Operations related to Profile
+- name: Master
+  description: Operations related to Master
+- name: Account
+  description: Operations related to Account
+- name: Service
+  description: Operations related to Service
+- name: Customer
+  description: Operations related to Customer
